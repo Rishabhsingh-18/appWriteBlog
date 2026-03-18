@@ -10,7 +10,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Home from "./component/pages/Home";
 import AddPost from "./component/pages/AddPost";
-import SignUp from "./component/pages/SignUp";
+import Signup from "./component/pages/Signup";
 import EditPost from "./component/pages/EditPost";
 import Post from "./component/pages/Post";
 import AllPosts from "./component/pages/AllPosts";
