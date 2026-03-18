@@ -1,23 +1,22 @@
-import React, { useEffect } from "react";   // ✅ added useEffect
+import React, { useEffect } from "react";  
 import { useForm } from "react-hook-form";
 import RTE from "../RTE";
 
-// ✅ added
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 
 function AddPost() {
 
-  // ✅ added watch + setValue
+  // watch + setValue
   const { register, handleSubmit, control, watch, setValue } = useForm();
 
-  // ✅ added
+  
   const navigate = useNavigate();
 
-  // ✅ added (watch title)
+  //(watch title)
   const title = watch("title");
 
-  // ✅ added (auto slug logic)
+  // (auto slug logic)
   useEffect(() => {
     if (title) {
       const slug = title

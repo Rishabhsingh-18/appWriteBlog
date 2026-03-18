@@ -6,7 +6,7 @@ function AllPosts() {
 
   const [posts, setPosts] = useState([]);
 
-  // ✅ NEW STATE (SEARCH)
+ 
   const [search, setSearch] = useState("");
 
   useEffect(() => {

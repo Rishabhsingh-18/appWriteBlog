@@ -11,7 +11,7 @@ function Post() {
 
   const [post, setPost] = useState(null);
 
-  // 🔥 LIKE + COMMENTS STATE
+
   const [liked, setLiked] = useState(false);
   const [likes, setLikes] = useState(0);
 
@@ -29,7 +29,7 @@ function Post() {
     }
   }, [slug, navigate]);
 
-  // ✅ DELETE FUNCTION
+  
   const deletePost = async () => {
     const confirmDelete = window.confirm("Are you sure you want to delete this post?");
     if (!confirmDelete) return;
