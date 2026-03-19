@@ -6,7 +6,14 @@ function Dashboard() {
 
   useEffect(() => {
     appwriteService.getPosts().then((res) => {
-      if (res) setPosts(res.documents);
+      if (res) {
+        //sort posts by latest
+        const sortedPosts = res.documents.sort(
+          (a, b) => new Date(b.$createdAt) - new Date(a.$createdAt)
+        );
+
+        setPosts(sortedPosts);
+      }
     });
   }, []);
 
@@ -34,7 +41,7 @@ function Dashboard() {
           <p className="text-3xl font-bold">{totalLikes}</p>
         </div>
 
-        {/* RECENT POSTS */}
+        {/* LATEST POST */}
         <div className="bg-green-500 text-white p-6 rounded-xl shadow">
           <h2 className="text-xl">Latest Post</h2>
           <p className="text-lg">
