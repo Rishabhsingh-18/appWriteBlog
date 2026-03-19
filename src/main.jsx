@@ -10,7 +10,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import Home from "./component/pages/Home";
 import AddPost from "./component/pages/AddPost";
-
 import EditPost from "./component/pages/EditPost";
 import Post from "./component/pages/Post";
 import AllPosts from "./component/pages/AllPosts";
@@ -18,7 +17,9 @@ import Signup from "./component/Signup";
 import Dashboard from "./component/pages/Dashboard";
 
 import Login from "./component/Login";
-import AuthLayout from "./component/AuthLayout";
+
+
+import AuthLayout from "./component/Protected";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          <AuthLayout authentication>
+            <Home />
+          </AuthLayout>
+        ),
       },
       {
         path: "/login",
@@ -54,13 +59,13 @@ const router = createBrowserRouter([
         ),
       },
       {
-  path: "/dashboard",
-  element: (
-    <AuthLayout authentication>
-      <Dashboard />
-    </AuthLayout>
-  ),
-},
+        path: "/dashboard",
+        element: (
+          <AuthLayout authentication>
+            <Dashboard />
+          </AuthLayout>
+        ),
+      },
       {
         path: "/add-post",
         element: (
@@ -78,13 +83,13 @@ const router = createBrowserRouter([
         ),
       },
       {
-  path: "/post/:slug",
-  element: (
-    <AuthLayout authentication>
-      <Post />
-    </AuthLayout>
-  ),
-},
+        path: "/post/:slug",
+        element: (
+          <AuthLayout authentication>
+            <Post />
+          </AuthLayout>
+        ),
+      },
     ],
   },
 ]);
